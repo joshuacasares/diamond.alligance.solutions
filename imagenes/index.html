@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diamond Alliance Solutions | Excelencia IT y Administrativa</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css">
+
+    <style>
+        :root {
+            --bg-dark: #000000;
+            --bg-card: #111111;
+            --primary-gold: #c6a361;
+            --secondary-gold: #e3c38a;
+            --text-light: #ffffff;
+            --text-muted: #a0a0a0;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-dark); 
+            color: var(--text-light); 
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .logo-text { font-family: 'Playfair Display', serif; font-weight: 700; }
+
+        /* --- HEADER Y LOGO ADAPTADO --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(0, 0, 0, 0.95);
+            border-bottom: 1px solid rgba(198, 163, 97, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container { display: flex; align-items: center; gap: 15px; }
+        
+        /* Contenedor blanco para que el logo no se vea mal en el fondo negro */
+        .logo-wrapper {
+            background: white;
+            padding: 8px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 10px rgba(198, 163, 97, 0.3);
+        }
+        .logo-wrapper img {
+            max-height: 70px;
+            width: auto;
+            display: block;
+        }
+        .logo-text { color: var(--primary-gold); font-size: 1.4rem; letter-spacing: 1px; }
+
+        .nav-links a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 400;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+        .nav-links a:hover { color: var(--primary-gold); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
+            padding: 150px 10%;
+            text-align: center;
+        }
+        .hero h1 { 
+            font-size: 4rem; 
+            margin-bottom: 25px;
+            background: linear-gradient(to right, #ffffff 0%, #c6a361 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p { font-size: 1.25rem; max-width: 700px; margin: 0 auto 40px auto; color: var(--text-muted); font-weight: 300; }
+
+        /* --- SECCIÓN HISTORIA Y VISIÓN (NUEVA) --- */
+        .historia-vision {
+            padding: 100px 10%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            background: #050505;
+        }
+        .block h2 { color: var(--primary-gold); margin-bottom: 20px; font-size: 2rem; }
+        .block p { color: var(--text-muted); font-size: 1.1rem; font-weight: 300; }
+
+        /* --- CARRUSEL AGRANDADO --- */
+        .clientes { padding: 100px 10%; background: #000; text-align: center; }
+        .clientes h2 { margin-bottom: 60px; font-size: 2.5rem; color: var(--text-light); }
+        .clientes h2::after { content: ''; display: block; width: 60px; height: 3px; background: var(--primary-gold); margin: 15px auto 0 auto; }
+        
+        .glide__slide {
+            background: white;
+            padding: 40px; /* Más padding para que se vea más grande */
+            border-radius: 5px;
+            height: 280px; /* Aumenté la altura */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .glide__slide img {
+            max-width: 95%;
+            max-height: 200px; /* Imagen más grande */
+            object-fit: contain;
+        }
+
+        /* --- SECCIÓN PRECIOS (NUEVA) --- */
+        .precios {
+            padding: 80px 10%;
+            text-align: center;
+            background: #0a0a0a;
+            border-top: 1px solid rgba(198, 163, 97, 0.1);
+            border-bottom: 1px solid rgba(198, 163, 97, 0.1);
+        }
+        .precios-box {
+            max-width: 900px;
+            margin: 0 auto;
+            border: 1px solid var(--primary-gold);
+            padding: 40px;
+            background: rgba(198, 163, 97, 0.02);
+        }
+        .precios h2 { color: var(--primary-gold); margin-bottom: 20px; }
+
+        /* --- SECCIÓN FIRMA --- */
+        .elegirnos { padding: 120px 10%; text-align: center; }
+        .grid-elegirnos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        .card-razon {
+            padding: 50px 40px;
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.03);
+            text-align: left;
+        }
+        .card-razon h3 { color: var(--secondary-gold); margin-bottom: 20px; }
+
+        /* --- CONTACTO --- */
+        .contacto { background: #050505; color: var(--text-light); padding: 120px 10%; }
+        .contacto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+        
+        .contacto-info h2 { font-size: 3rem; margin-bottom: 30px; }
+        .contacto-info p { color: var(--text-muted); margin-bottom: 20px; }
+
+        input, select, textarea {
+            width: 100%; padding: 18px; margin-bottom: 20px; border: 1px solid rgba(198, 163, 97, 0.2);
+            background: rgba(0,0,0,0.5); color: var(--text-light); font-family: inherit;
+        }
+        
+        .btn-submit {
+            background: var(--primary-gold); color: var(--bg-dark); padding: 20px 40px;
+            border: none; font-weight: 700; cursor: pointer; width: 100%;
+            text-transform: uppercase; letter-spacing: 2px;
+        }
+
+        /* --- FOOTER --- */
+        footer { 
+            padding: 60px 10%; 
+            text-align: center; 
+            background: var(--bg-dark); 
+            color: var(--text-muted); 
+            border-top: 1px solid rgba(198, 163, 97, 0.05);
+        }
+        footer strong { color: var(--primary-gold); }
+
+        @media (max-width: 992px) {
+            .historia-vision, .contacto-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo-container">
+        <div class="logo-wrapper">
+            <img src="imagenes/logo.jpeg" alt="Diamond Alliance Solutions Logo">
+        </div>
+        <span class="logo-text">Diamond Alliance</span>
+    </div>
+    <nav class="nav-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#historia">Nuestra Historia</a>
+        <a href="#clientes">Casos de Éxito</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+</header>
+
+<section class="hero" id="inicio">
+    <h1>Excelencia en Soluciones Integrales</h1>
+    <p>Unificamos la gestión administrativa de alto nivel con infraestructura informática avanzada para empresas que buscan el liderazgo.</p>
+    <a href="#contacto" style="text-decoration:none;" class="btn-submit">Solicitar Consultoría</a>
+</section>
+
+<section class="historia-vision" id="historia">
+    <div class="block">
+        <h2>Nuestra Historia</h2>
+        <p>Somos una empresa creada en 2025 la cual busca impulsarse e impulsar a otros. Nos creamos por un proyecto escolar y, lentamente, gracias a nuestra dedicación y resultados, alcanzamos la confianza de nuestros primeros clientes hasta convertirnos en la firma que somos hoy.</p>
+    </div>
+    <div class="block">
+        <h2>Nuestra Visión</h2>
+        <p>Creemos que todos los negocios tienen derecho a salir adelante y conseguir conectar y aumentar sus ganancias. Nuestra misión es expandirnos a todo el mundo para brindar servicios de calidad a un precio accesible, eliminando las barreras tecnológicas y administrativas.</p>
+    </div>
+</section>
+
+<section class="clientes" id="clientes">
+    <h2>Nuestros Clientes y Casos de Éxito</h2>
+    <div class="glide" id="glide-clientes">
+        <div class="glide__track" data-glide-el="track">
+            <ul class="glide__slides">
+                <li class="glide__slide"><img src="imagenes/trazos.jpg" alt="Caso Trazos"></li>
+                <li class="glide__slide"><img src="imagenes/urban.jpg" alt="Caso Urban"></li>
+                <li class="glide__slide"><img src="imagenes/trazos.jpg" alt="Caso Trazos"></li>
+                <li class="glide__slide"><img src="imagenes/urban.jpg" alt="Caso Urban"></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="precios">
+    <div class="precios-box">
+        <h2>Política de Precios</h2>
+        <p>En Diamond Alliance Solutions <strong>no tenemos costos cerrados</strong>. Ajustamos cada costo a las necesidades reales del cliente y estimamos a fecha del día conforme al valor del mercado de ese servicio. Creemos en la transparencia y en un precio justo para cada proyecto.</p>
+    </div>
+</section>
+
+<section class="elegirnos">
+    <h2>Compromiso Diamond</h2>
+    <div class="grid-elegirnos">
+        <div class="card-razon">
+            <h3>Visión 360°</h3>
+            <p>Integramos la infraestructura técnica con la gestión operativa para un control total de su negocio.</p>
+        </div>
+        <div class="card-razon">
+            <h3>Robustez IT</h3>
+            <p>Sistemas diseñados para la alta disponibilidad y seguridad de su información crítica.</p>
+        </div>
+        <div class="card-razon">
+            <h3>Soporte Administrativo</h3>
+            <p>Facilitamos la carga administrativa de empresas contratistas, permitiéndoles enfocarse en crecer.</p>
+        </div>
+    </div>
+</section>
+
+<section class="contacto" id="contacto">
+    <div class="contacto-grid">
+        <div class="contacto-info">
+            <h2>Hablemos de su Proyecto</h2>
+            <p>Inicie una nueva etapa de eficiencia para su organización.</p>
+            <div style="margin-top: 40px; color: var(--secondary-gold); font-size: 1rem;">
+                <p>📍 Sede: Ciudad de México</p>
+                <p>✉️ <strong>diamondalligancesolutions@gmail.com</strong></p>
+            </div>
+        </div>
+        <form>
+            <input type="text" placeholder="Nombre completo">
+            <select>
+                <option>Gestión Administrativa</option>
+                <option>Infraestructura de Redes</option>
+                <option>Bases de Datos</option>
+                <option>Desarrollo Web</option>
+            </select>
+            <textarea rows="4" placeholder="¿En qué podemos ayudarle hoy?"></textarea>
+            <button type="submit" class="btn-submit">Enviar Mensaje</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 <strong>Diamond Alliance Solutions</strong>. Todos los Derechos Reservados.</p>
+    <p style="font-size: 0.75rem; margin-top: 10px; opacity: 0.4;">Excelencia e Impulso desde 2025.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+<script>
+    new Glide('#glide-clientes', {
+        type: 'carousel',
+        startAt: 0,
+        perView: 2, // Ajustado a 2 para que las imágenes se vean más grandes
+        autoplay: 3000,
+        gap: 50,
+        breakpoints: {
+            768: { perView: 1 }
+        }
+    }).mount();
+</script>
+
+</body>
+</html>

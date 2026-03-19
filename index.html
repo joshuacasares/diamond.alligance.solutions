@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diamond Alligance Solutions | Consultoría Integral de Élite</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
+
+    <style>
+        :root {
+            --bg-deep: #050505;
+            --bg-surface: #0a0a0a;
+            --bg-card: #0f0f0f;
+            --gold-primary: #b08d57;
+            --gold-muted: #8e734a;
+            --gray-light: #e0e0e0;
+            --gray-muted: #666666;
+            --border-subtle: rgba(176, 141, 87, 0.15);
+            --whatsapp: #25D366;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-deep); color: var(--gray-light); line-height: 1.7; overflow-x: hidden; }
+        h1, h2, h3, .logo-text { font-family: 'Playfair Display', serif; font-weight: 700; }
+
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 25px 5%; background: rgba(5, 5, 5, 0.98);
+            border-bottom: 1px solid var(--border-subtle);
+            position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(10px);
+        }
+
+        .logo-container { display: flex; align-items: center; gap: 18px; }
+        .logo-wrapper { background: #ffffff; padding: 6px; border-radius: 2px; display: flex; align-items: center; }
+        .logo-wrapper img { max-height: 55px; width: auto; }
+        .logo-text { color: var(--gold-primary); font-size: 1.3rem; letter-spacing: 0.5px; }
+
+        .nav-links a {
+            margin-left: 25px; text-decoration: none; color: var(--gray-muted);
+            font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; transition: 0.4s;
+        }
+        .nav-links a:hover { color: var(--gold-primary); }
+
+        .hero { padding: 140px 10%; text-align: center; background: radial-gradient(circle at center, #111 0%, #050505 100%); }
+        .hero h1 { 
+            font-size: 3.8rem; margin-bottom: 25px;
+            background: linear-gradient(135deg, #ffffff 30%, var(--gold-primary) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .hero p { color: var(--gray-muted); font-size: 1.2rem; font-style: italic;}
+
+        .institucional { padding: 100px 10%; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; background: var(--bg-surface); }
+        .inst-block h2 { color: var(--gold-primary); margin-bottom: 25px; font-size: 2.2rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 10px; }
+
+        .alianzas { padding: 100px 0; background: #000; text-align: center; }
+        .alianzas h2 { margin-bottom: 60px; font-size: 2.5rem; color: var(--gold-primary); }
+        .glide__slide { background: #fff; height: 450px; display: flex; justify-content: center; align-items: center; }
+        .glide__slide img { max-width: 80%; max-height: 350px; object-fit: contain; }
+
+        /* --- SECCIÓN ¿POR QUÉ ELEGIRNOS? UNIFICADA --- */
+        .seccion-valor { padding: 120px 10%; background: var(--bg-deep); border-top: 1px solid var(--border-subtle); }
+        .seccion-valor h2 { text-align: center; font-size: 3rem; margin-bottom: 50px; color: var(--gold-primary); }
+        .valor-unificado { 
+            background: var(--bg-card); padding: 60px; border: 1px solid var(--border-subtle);
+            max-width: 1000px; margin: 0 auto; text-align: center;
+        }
+        .valor-unificado p { font-size: 1.1rem; color: #ccc; margin-bottom: 25px; font-weight: 300; text-align: justify; }
+        .valor-unificado strong { color: var(--gold-primary); font-weight: 600; }
+
+        .gestion-clientes { padding: 120px 10%; background: var(--bg-surface); border-top: 1px solid var(--border-subtle); }
+        .gestion-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 50px; }
+        
+        .card-formal { background: var(--bg-card); padding: 50px; border: 1px solid var(--border-subtle); }
+        .card-formal h3 { margin-bottom: 30px; color: var(--gold-primary); font-size: 1.8rem; }
+
+        input, textarea {
+            width: 100%; padding: 18px; margin-bottom: 20px;
+            background: transparent; border: 1px solid #222; color: var(--gray-light); font-family: inherit;
+        }
+        input:focus, textarea:focus { border-color: var(--gold-primary); outline: none; }
+
+        .btn-executive {
+            background: var(--gold-primary); color: #000; padding: 20px; border: none;
+            font-weight: 600; text-transform: uppercase; letter-spacing: 2px; cursor: pointer;
+            width: 100%; transition: 0.4s; display: block; text-align: center; text-decoration: none;
+        }
+        .btn-executive:hover { background: var(--gold-muted); color: #fff; }
+
+        .btn-whatsapp {
+            background: var(--whatsapp); color: #fff; padding: 20px; border: none;
+            font-weight: 600; text-transform: uppercase; letter-spacing: 2px; cursor: pointer;
+            width: 100%; transition: 0.4s; display: block; text-align: center; text-decoration: none;
+            margin-top: 15px;
+        }
+        .btn-whatsapp:hover { opacity: 0.9; transform: scale(1.01); }
+
+        .btn-outline {
+            border: 1px solid var(--gold-primary); color: var(--gold-primary);
+            background: transparent; padding: 12px 25px; text-decoration: none;
+            display: inline-block; margin-top: 15px; transition: 0.3s; font-size: 0.8rem;
+        }
+        .btn-outline:hover { background: var(--gold-primary); color: #000; }
+
+        footer { padding: 60px 10%; background: #000; text-align: center; border-top: 1px solid var(--border-subtle); }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo-container">
+        <div class="logo-wrapper"><img src="imagenes/logo.jpeg" alt="Logo"></div>
+        <span class="logo-text">Diamond Alligance Solutions</span>
+    </div>
+    <nav class="nav-links">
+        <a href="#trayectoria">Historia</a>
+        <a href="#elegirnos">Diferenciales</a>
+        <a href="#alianzas">Clientes</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Excelencia Institucional</h1>
+    <p>"Excelencia para empresas que buscan perfección"</p>
+</section>
+
+<section class="institucional" id="trayectoria">
+    <div class="inst-block">
+        <h2>Trayectoria Institucional</h2>
+        <p>Diamond Alligance Solutions nace en 2025 como un ambicioso proyecto escolar de innovación tecnológica. Lo que comenzó en las aulas como una visión de excelencia, se transformó rápidamente en una firma consultora con hambre de posicionamiento global.</p>
+        <p>Nuestra historia es la prueba de que la disciplina académica y la pasión por el desarrollo pueden crear estructuras corporativas de clase mundial.</p>
+    </div>
+    <div class="inst-block">
+        <h2>Misión y Visión</h2>
+        <p>Nuestra filosofía es simple pero poderosa: Ayudamos a los pequeños negocios a despegar con herramientas profesionales y a los medianos y grandes a expandirse sin límites.</p>
+        <p>Todo esto bajo un modelo de costos accesibles y altamente competitivos, demostrando que la alta tecnología no tiene por qué ser inalcanzable.</p>
+    </div>
+</section>
+
+<section class="alianzas" id="alianzas">
+    <h2>Nuestros Clientes</h2>
+    <div class="glide" id="glide-full">
+        <div class="glide__track" data-glide-el="track">
+            <ul class="glide__slides">
+                <li class="glide__slide"><img src="imagenes/trazos.jpg" alt="Socio 1"></li>
+                <li class="glide__slide"><img src="imagenes/urban.jpg" alt="Socio 2"></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="seccion-valor" id="elegirnos">
+    <h2>Diferenciales de Firma</h2>
+    <div class="valor-unificado">
+        <p>Nuestra firma se distingue por un modelo de <strong>Cotización Dinámica</strong>, donde cada presupuesto se ajusta al valor real del mercado y la complejidad técnica, garantizando honestidad comercial absoluta. Facilitamos una <strong>Accesibilidad Directa</strong> sin intermediarios, asegurando que la comunicación entre cliente y contratado sea fluida y transparente en cada fase del proyecto.</p>
+        
+        <p>Respaldamos cada entrega con <strong>Garantías de Hierro</strong> post-implementación y el otorgamiento de <strong>Licencias de Uso Perpetuo</strong>, asegurando que la propiedad intelectual sea totalmente suya. Nos especializamos en el desarrollo de <strong>Código Propio y Tecnologías Especiales</strong> diseñadas a medida, ofreciendo soluciones únicas que no dependen de plataformas genéricas, elevando la competitividad de su empresa al estándar de la perfección.</p>
+    </div>
+</section>
+
+<section class="gestion-clientes" id="contacto">
+    <div class="gestion-grid">
+        <div>
+            <h2>Enlace de Agencia</h2>
+            <p style="margin-bottom: 20px; color: var(--gray-muted);">Contacte con nuestros directivos para consultas inmediatas.</p>
+            <p>✉ <strong>diamondalligancesolutions@gmail.com</strong></p>
+            <a href="mailto:diamondalligancesolutions@gmail.com?subject=Consulta General" class="btn-outline">Redactar Correo</a>
+            <br><br>
+            <p>📞 <strong>Línea Directa: +52 5576111890</strong></p>
+            <a href="https://wa.me/5576111890" class="btn-whatsapp">Contactar vía WhatsApp Business</a>
+        </div>
+        <div class="card-formal">
+            <h3>Servicio Especial</h3>
+            <input type="text" id="esp_empresa" placeholder="Nombre de su Empresa / Entidad">
+            <textarea id="esp_mensaje" rows="4" placeholder="Describa su requerimiento especial..."></textarea>
+            <button onclick="enviarServicioEspecial()" class="btn-executive">Transmitir a Agencia</button>
+        </div>
+    </div>
+</section>
+
+<section class="gestion-clientes" id="portal" style="background: #000;">
+    <h2 style="text-align: center; color: var(--gold-primary); margin-bottom: 60px;">Portal de Gestión</h2>
+    <div class="gestion-grid">
+        <div class="card-formal">
+            <h3>Póliza de Garantía</h3>
+            <input type="text" id="pol_numero" placeholder="Código de Póliza (D.A.S-XXXX)">
+            <textarea id="pol_detalle" rows="3" placeholder="Descripción técnica de la incidencia..."></textarea>
+            <button onclick="enviarGarantia()" class="btn-executive">Validar Garantía</button>
+        </div>
+        <div class="card-formal">
+            <h3>Rescisión de Contrato</h3>
+            <input type="text" id="res_contrato" placeholder="ID de Referencia Contractual">
+            <textarea id="res_motivo" rows="3" placeholder="Motivos formales de la solicitud..."></textarea>
+            <button onclick="enviarRescision()" class="btn-executive" style="background:#222; color:#fff;">Solicitar Rescisión</button>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p style="letter-spacing: 1px; margin-bottom: 10px;">DIAMOND ALLIGANCE SOLUTIONS | EXCELENCIA PARA EMPRESAS QUE BUSCAN PERFECCIÓN</p>
+    <p style="font-size: 0.8rem; opacity: 0.6;">&copy; 2025 - 2030 TODOS LOS DERECHOS RESERVADOS.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+<script>
+    new Glide('#glide-full', { type: 'carousel', perView: 1, autoplay: 4000 }).mount();
+
+    const EMAIL = "diamondalligancesolutions@gmail.com";
+    function ejecutarEnvio(sub, body) {
+        const link = document.createElement('a');
+        link.href = `mailto:${EMAIL}?subject=${encodeURIComponent(sub)}&body=${encodeURIComponent(body)}`;
+        link.target = '_blank'; 
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
+    function enviarServicioEspecial() {
+        const emp = document.getElementById('esp_empresa').value || "No especificada";
+        const msj = document.getElementById('esp_mensaje').value;
+        ejecutarEnvio(`Servicio Especial: ${emp}`, msj);
+    }
+    function enviarGarantia() {
+        const pol = document.getElementById('pol_numero').value || "S/N";
+        const msj = document.getElementById('pol_detalle').value;
+        ejecutarEnvio(`Garantía: ${pol}`, msj);
+    }
+    function enviarRescision() {
+        const con = document.getElementById('res_contrato').value || "S/R";
+        const msj = document.getElementById('res_motivo').value;
+        ejecutarEnvio(`Rescisión: ${con}`, msj);
+    }
+</script>
+</body>
+</html>
